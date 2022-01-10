@@ -13,7 +13,7 @@ class ConditionalRendering extends LitElement {
   static get properties() {
     return {
       showMessage: { type: Boolean },
-      message: { type: String },
+      message: { type: String },
       disabled: { type: Boolean },
     };
   }
