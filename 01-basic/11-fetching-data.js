@@ -12,24 +12,27 @@ class FetchingData extends LitElement {
     this.response = [];
   }
 
-  firstUpdated() {
-    fetch('https://swapi.co/api/people/')
-      .then(r => r.json())
-      .then(r => {
-        this.response = r.results;
-      });
-  }
+  firstUpdated() { 
+    fetch ('https://www.balldontlie.io/api/v1/players') 
+    .then( r => r.json ()) 
+    .then( data => this.handleData( data )); 
+  } 
 
-  render() {
-    const { response } = this;
-    return html`
-        <ul>
-          ${response.map(item => html`
-            <li>${item.name}</li>
-          `)}
-        </ul>
-      `;
-  }
+  handleData( data ) { 
+    this.response = [ ... data.data ]; 
+  } 
+
+  render() { 
+    const {  response  } = this; 
+    return html` 
+      <ul> 
+        ${ response . map ( 
+          item  =>  html  ` 
+            <li> ${ item . first_name }  </li>` 
+          )}
+      </ul> 
+    ` ; 
+  } 
 }
 
 customElements.define('fetching-data', FetchingData);
