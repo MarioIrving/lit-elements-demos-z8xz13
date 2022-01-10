@@ -1,0 +1,11 @@
+*.DS_STORE
+.vscode
+package-lock
+
+node_modules
+components
+bower_components
+
+build
+dist
+
